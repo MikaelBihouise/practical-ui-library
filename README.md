@@ -4,9 +4,9 @@ P-UI Library is a comprehensive and modular component library for building moder
 
 ## Features
 
-- [Feature 1]
-- [Feature 2]
-- [Feature 3]
+- Adapt to your own design system
+- Not happy with the component as is, go to the docs and modify it as you wish
+- Reusable
 
 ## Installation
 
