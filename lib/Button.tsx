@@ -19,7 +19,7 @@ export default function Button({
       /* eslint-enable react/button-has-type */
       className={`${classNames} ${disabled ? btnDisabledClassname : ''}`}
       onClick={click}
-      disabled
+      disabled={disabled}
     >
       {text}
     </button>

@@ -1,14 +1,13 @@
 import React, { useState, ReactNode } from 'react';
 
-interface ButtonProps {
+type Button = {
   buttonText: string
   buttonDisabled?: boolean
-  buttonClassNames?: string
+  buttonClassnames?: string
   btnDisabledClassname?: string
   buttonType: 'submit' | 'reset' | 'button'
 }
-
-interface PopinProps extends ButtonProps {
+interface PopinProps {
   popinTitle?: string
   popinTitleClassname?: string
   popinContent?: string | ReactNode
@@ -17,6 +16,7 @@ interface PopinProps extends ButtonProps {
   popinButtonClassname: string
   popinContainerClassname: string
   popinBackdropClassname: string
+  button: Button
 }
 
 export default function Popin({
@@ -28,25 +28,20 @@ export default function Popin({
   popinButtonType,
   popinButtonDisabled,
   popinButtonClassname,
-  buttonText,
-  buttonDisabled,
-  buttonClassNames,
-  btnDisabledClassname,
-  buttonType,
+  button
 }: PopinProps): ReactNode {
   const [popinOpen, setPopinOpen] = useState(false);
   return (
     <>
-
       <button
           /* eslint-disable react/button-has-type */
-        type={buttonType}
+        type={button.buttonType}
           /* eslint-enable react/button-has-type */
-        className={`${buttonClassNames} ${buttonDisabled ? btnDisabledClassname : ''}`}
+        className={`${button.buttonClassnames} ${button.buttonDisabled ? button.btnDisabledClassname : ''}`}
         onClick={() => setPopinOpen(!popinOpen)}
-        disabled
+        disabled={button.buttonDisabled}
       >
-        {buttonText}
+        {button.buttonText}
       </button>
       {popinOpen && (
       <>

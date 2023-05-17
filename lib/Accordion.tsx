@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 
 interface AccordionItem {
   id: number;
   title: string;
-  content: string;
+  content: string | ReactNode;
 }
 
 interface AccordionProps {
   items: AccordionItem[];
-  className: string;
-  itemsCN: string,
-  itemsTitleCN: string,
-  itemsContentCN: string,
+  classname: string;
+  itemsClassname: string,
+  itemsTitleClassname: string,
+  itemsContentClassname: string,
 }
 
 export default function Accordion({
-  items, className, itemsCN, itemsTitleCN, itemsContentCN,
+  items, classname, itemsClassname, itemsTitleClassname, itemsContentClassname,
 }: AccordionProps) {
   const [activeIndex, setActiveIndex] = useState(-1);
 
@@ -34,11 +34,11 @@ export default function Accordion({
   };
 
   return (
-    <div className={`${itemsCN} ${className || ''}`}>
+    <div className={`${itemsClassname} ${classname || ''}`}>
       {items.map((item: AccordionItem) => (
-        <div key={item.id} className={itemsCN}>
+        <div key={item.id} className={itemsClassname}>
           <div
-            className={`${itemsTitleCN} ${activeIndex === item.id ? 'active' : ''}`}
+            className={`${itemsTitleClassname} ${activeIndex === item.id ? 'active' : ''}`}
             onClick={() => toggleAccordionItem(item.id)}
             role="button"
             tabIndex={0}
@@ -47,7 +47,7 @@ export default function Accordion({
             {item.title}
           </div>
           <div
-            className={`${itemsContentCN} ${
+            className={`${itemsContentClassname} ${
               activeIndex === item.id ? 'active' : 'inactive'
             }`}
           >

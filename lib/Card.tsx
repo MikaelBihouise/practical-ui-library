@@ -19,7 +19,7 @@ type CardText = AllOrNone<{
   text: string
 }>
 
-interface ButtonProps {
+type Button = {
   buttonText: string
   buttonDisabled?: boolean
   buttonClassnames?: string
@@ -28,12 +28,13 @@ interface ButtonProps {
   buttonDisabledClassname: string
 }
 
-interface CardProps extends ButtonProps {
+interface CardProps {
   cardClassname: string
   cardImage?: CardImage
   cardSubTitle?: CardTitle
   cardText?: CardText
   cardTitle?: CardTitle
+  button?: Button
 }
 
 export default function Card({
@@ -42,12 +43,7 @@ export default function Card({
   cardSubTitle,
   cardText,
   cardTitle,
-  buttonText,
-  buttonClick,
-  buttonDisabled,
-  buttonDisabledClassname,
-  buttonType,
-  buttonClassnames,
+button
 }: CardProps): ReactNode {
   return (
     <div className={cardClassname}>
@@ -71,16 +67,16 @@ export default function Card({
           {cardText.text}
         </div>
       )}
-      {buttonType && (
+      {button && (
         <button
           /* eslint-disable react/button-has-type */
-          type={buttonType}
+          type={button.buttonType}
           /* eslint-enable react/button-has-type */
-          className={`${buttonClassnames || ''} ${buttonDisabled ? buttonDisabledClassname : ''}`}
-          onClick={buttonDisabled ? undefined : buttonClick}
-          disabled={buttonDisabled}
+          className={`${button.buttonClassnames || ''} ${button.buttonDisabled ? button.buttonDisabledClassname : ''}`}
+          onClick={button.buttonDisabled ? undefined : button.buttonClick}
+          disabled={button.buttonDisabled}
         >
-          {buttonText}
+          {button.buttonText}
         </button>
       )}
     </div>
