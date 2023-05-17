@@ -11,7 +11,7 @@ P-UI Library is a comprehensive and modular component library for building moder
 ## Installation
 
 ```bash
-npm install p-ui-library
+npm install practical-ui-library
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ export default function Button({
 
 ## Documentation
 
-For detailed documentation and usage instructions, please refer to the P-UI-Library documentation [p-ui-library].
+For detailed documentation and usage instructions, please refer to the P-UI-Library documentation [https://practical-ui-library.com/docs].
 
 ## Issues
 
