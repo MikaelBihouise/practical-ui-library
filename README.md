@@ -1,6 +1,6 @@
 # Practical-ui-library
 
-P-UI Library is a comprehensive and modular component library for building modern web applications. It provides a set of reusable UI components and utilities that can be easily integrated into your project. 
+P-UI Library is a comprehensive and modular component library for building modern web applications. It provides a set of reusable UI components and utilities that can be easily integrated into your project.
 
 ## Features
 
@@ -25,16 +25,18 @@ interface ButtonProps {
   classNames?: string;
   click?: () => void;
   buttonType: 'submit' | 'reset' | 'button';
+  btnDisabledClassname: string;
 }
 
 export default function Button({
-  text, disabled, classNames, click, buttonType,
+  text, disabled, classNames, click, buttonType, btnDisabledClassname,
 }:ButtonProps) {
   return (
     <button
       type={buttonType}
-      className={`${classNames ? classNames : ''} ${disabled ? 'btn-disabled' : ''} btn-default`}
-      onClick={disabled ? undefined : click}
+      className={`${classNames} ${disabled ? btnDisabledClassname : ''}`}
+      onClick={click}
+      disabled={disabled}
     >
       {text}
     </button>
