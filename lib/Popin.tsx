@@ -1,6 +1,6 @@
-import React, { useState, ReactNode } from 'react';
+import React, { useState } from 'react';
 
-type Button = {
+interface Button {
   buttonText: string
   buttonDisabled?: boolean
   buttonClassnames?: string
@@ -10,7 +10,7 @@ type Button = {
 interface PopinProps {
   popinTitle?: string
   popinTitleClassname?: string
-  popinContent?: string | ReactNode
+  popinContent?: string
   popinButtonType: 'submit' | 'reset' | 'button'
   popinButtonDisabled: boolean
   popinButtonClassname: string
@@ -29,7 +29,7 @@ export default function Popin({
   popinButtonDisabled,
   popinButtonClassname,
   button
-}: PopinProps): ReactNode {
+}: PopinProps) {
   const [popinOpen, setPopinOpen] = useState(false);
   return (
     <>
